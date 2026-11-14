@@ -1,18 +1,10 @@
 \# System Architecture – School Management Platform
 
-
-
 \## 1. Overview
-
-
 
 The School Management Platform follows a containerized three-tier architecture consisting of a reverse proxy, backend API and relational database.
 
-
-
 \## 2. Architecture Diagram
-
-
 
 ```mermaid
 
@@ -34,11 +26,7 @@ flowchart TD
 
 ```
 
-
-
 \## 3. Components
-
-
 
 \### Nginx
 
@@ -49,8 +37,6 @@ flowchart TD
 \- Redirects HTTP requests to HTTPS.
 
 \- Forwards requests to the backend API.
-
-
 
 \### Node.js and Express API
 
@@ -66,8 +52,6 @@ flowchart TD
 
 \- Generates audit logs.
 
-
-
 \### PostgreSQL
 
 \- Stores teachers, students and classes.
@@ -80,8 +64,6 @@ flowchart TD
 
 \- Uses persistent Docker volumes.
 
-
-
 \### GitHub Actions
 
 \- Runs code quality checks.
@@ -92,11 +74,7 @@ flowchart TD
 
 \- Publishes versioned images to GHCR.
 
-
-
 \## 4. Security Architecture
-
-
 
 \- API keys authenticate teachers.
 
@@ -110,15 +88,9 @@ flowchart TD
 
 \- Environment secrets are excluded from Git.
 
-
-
 \## 5. Deployment Architecture
 
-
-
 Services are deployed using Docker Compose:
-
-
 
 \- `nginx`: Reverse proxy and HTTPS.
 
@@ -126,11 +98,7 @@ Services are deployed using Docker Compose:
 
 \- `db`: PostgreSQL database.
 
-
-
 \## 6. Data Flow
-
-
 
 1\. Client sends an HTTPS request.
 
@@ -143,4 +111,3 @@ Services are deployed using Docker Compose:
 5\. PostgreSQL stores or retrieves data.
 
 6\. API returns the response through Nginx.
-

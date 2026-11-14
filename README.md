@@ -1,10 +1,6 @@
 \# School Management Platform
 
-
-
 A containerized School Management Platform built using Node.js, Express, PostgreSQL, Docker, Nginx and GitHub Actions.
-
-
 
 \## Features
 
@@ -36,11 +32,7 @@ A containerized School Management Platform built using Node.js, Express, Postgre
 
 \- Database backup and restore
 
-
-
 \## Technology Stack
-
-
 
 | Component | Technology |
 
@@ -62,19 +54,11 @@ A containerized School Management Platform built using Node.js, Express, Postgre
 
 | Code Quality | ESLint, Prettier |
 
-
-
 \## Architecture
-
-
 
 Client → Nginx HTTPS Reverse Proxy → Node.js API → PostgreSQL
 
-
-
 Detailed architecture: `docs/architecture/architecture.md`
-
-
 
 \## Prerequisites
 
@@ -88,15 +72,9 @@ Detailed architecture: `docs/architecture/architecture.md`
 
 \- GitHub account
 
-
-
 \## Setup
 
-
-
 Clone the repository:
-
-
 
 ```bash
 
@@ -106,11 +84,7 @@ cd school-management-platform
 
 ```
 
-
-
 Create environment configuration:
-
-
 
 ```powershell
 
@@ -118,15 +92,9 @@ Copy-Item .env.example .env
 
 ```
 
-
-
 Configure database credentials and teacher API keys in `.env`.
 
-
-
 Start services:
-
-
 
 ```bash
 
@@ -136,11 +104,7 @@ docker compose ps
 
 ```
 
-
-
 \## API Endpoints
-
-
 
 | Method | Endpoint | Description |
 
@@ -158,27 +122,15 @@ docker compose ps
 
 | GET | `/api/attendance/:classId` | Retrieve attendance |
 
-
-
 Teacher-protected endpoints require the `x-api-key` header.
-
-
 
 \## HTTPS
 
-
-
 Local application:
-
-
 
 `https://localhost`
 
-
-
 Test health:
-
-
 
 ```bash
 
@@ -188,15 +140,9 @@ curl -k https://localhost/health/ready
 
 ```
 
-
-
 The local deployment uses a self-signed certificate. Production requires a trusted TLS certificate.
 
-
-
 \## CI/CD
-
-
 
 GitHub Actions performs:
 
@@ -214,39 +160,21 @@ GitHub Actions performs:
 
 7\. Image publishing to GHCR
 
-
-
 Repository: https://github.com/Nikhilbloria/school-management-platform
-
-
 
 Image: `ghcr.io/nikhilbloria/school-management-platform`
 
-
-
 \## Backup and Restore
-
-
 
 Database backup and restore procedures are documented in:
 
-
-
 `docs/runbook/operations-runbook.md`
-
-
 
 \## Evidence
 
-
-
 Deployment evidence and image digests are stored in:
 
-
-
 `docs/evidence/`
-
-
 
 \## Security
 
@@ -264,19 +192,10 @@ Deployment evidence and image digests are stored in:
 
 \- Credential rotation
 
-
-
 \## Production Considerations
-
-
 
 This is a local demonstration deployment. Production deployment requires trusted TLS, production-grade secret management, infrastructure monitoring and tested disaster recovery.
 
-
-
 \## Author
 
-
-
 Nikhil Bloria
-
