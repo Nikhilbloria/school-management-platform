@@ -6,3 +6,7 @@ coverage/
 logs/
 backups/
 *.log
+# Nginx SSL private keys
+nginx/certs/*.key
+
+docker-compose.backup.yml
