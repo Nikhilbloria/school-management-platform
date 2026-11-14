@@ -1,3 +1,4 @@
+
 name: School Management Platform CI/CD
 
 on:
@@ -72,7 +73,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=tag
-            type=sha,prefix=sha-
+            type=sha,prefix=sha-,format=long
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -81,3 +82,13 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Scan Docker image with Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: ghcr.io/nikhilbloria/school-management-platform:sha-${{ github.sha }}
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: os,library
+          severity: CRITICAL,HIGH
